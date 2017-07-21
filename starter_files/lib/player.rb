@@ -51,8 +51,12 @@ end
 
 class CautiousPlayer2 < Player
   def roll_again?
-    random = rand
-    super && random > 0.5
+    if @turn_score == 0
+      super
+    else
+      random = rand
+      super && random > 0.5
+    end
   end
 end
 
